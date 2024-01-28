@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Document</title>
+</head>
+<body>
+
+{% block content %}
+<h1>Blog Posts</h1>
+<ul>
+{% for post in posts %}
+<li>
+<a href="{% url 'post-detail' post.id %}">{{ post.title }}</a>
+<span>- {{ post.author }}</span>
+</li>
+{% empty %}
+<li>No posts available. </li>
+{% endfor %}
+</ul>
+{% endblock %}
+</body>
+</html>
